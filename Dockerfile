@@ -1,4 +1,9 @@
-FROM nvidia/cuda:9.0-devel-ubuntu16.04
+ARG FROM_IMG_REGISTRY=docker.io
+ARG FROM_IMG_REPO=qnib
+ARG FROM_IMG_NAME="uplain-cuda-devel"
+ARG FROM_IMG_TAG="latest"
+ARG FROM_IMG_HASH=""
+FROM ${FROM_IMG_REGISTRY}/${FROM_IMG_REPO}/${FROM_IMG_NAME}:${FROM_IMG_TAG}${DOCKER_IMG_HASH}
 
 # TensorFlow version is tightly coupled to CUDA and cuDNN so it should be selected carefully
 ENV TENSORFLOW_VERSION=1.9.0
